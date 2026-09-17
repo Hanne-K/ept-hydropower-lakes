@@ -1,6 +1,6 @@
 #############################################
 
-# Setup
+# 1 Setup
 
 #############################################
 
@@ -26,6 +26,7 @@ package_vec <- c(
   "mapview",
   "ggplot2", # for visualistion
   "ggpubr", # publication ready plots
+  "cowplot",
   "scales", # adjusting ggplot scales
   "ggExtra", # add marginal density plot to ggplot
   "report", # for citing packages including versions
@@ -50,7 +51,8 @@ package_vec <- c(
   "grid",
   "sads",
   "vegan",
-  "betapart"
+  "betapart",
+  "indicspecies" # package for indicator species analysis
 )
 
 ## executing install & load for each package
