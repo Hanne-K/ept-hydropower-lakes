@@ -4,23 +4,95 @@ format: html
 editor: visual
 ---
 
-## Quarto
+# Introduction
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+This R project documents analysis of Ephemeroptera, Plecoptera, and Trichoptera larva collected in relation to a field study conducted in Trøndelag, Norway. Benthic invertebrate sampling was performed in 6 lakes, 3 regulated for hydropower production and 3 controls, every 2nd week during spring and summer of 2023 and 2024. A standardized kick sampling method was used, with 1-minute intervals. Sampling started as soon after ice melt as possible and ended in late June/early July, resulting in 4 sampling times. See the document README.md for further details on licenses and citation.
 
-## Running Code
+Corresponding publication:
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+> **Paper Title:** *Hydropower regulation reshapes littoral invertebrate communities: functional traits reveal impacts beyond richness and abundance*\
+> **Authors:** *Krogstie, Hanne Bjørnås; Solvåg, Christianne Dalsbotten; Ratikainen, Irja Ida; Kjærstad, Gaute; Finstad, Anders Gravbrøt*\
+> **Journal:** *Accepted to Aquatic Sciences* (2026)\
+> **DOI:** *10.1007/s00027-026-01367-3*
 
-```{r}
-1 + 1
+# 1. Setup
+
+Run setup script, which loads (and installs if needed) packages.
+
+```{r load-packages, warning=FALSE}
+# Load packages
+source("1_setup.R")
 ```
 
-You can add options to executable code like this
+# 2. Load data
 
-```{r}
-#| echo: false
-2 * 2
+The scripts 2_1 to 2_7 loads, structures, and tidies raw data, which then can be used for analysis or data visualization.
+
+**Considering sample variability and removing replicates**
+
+Multiple kick sampling replicates (5 per event in 2023 and 3 per event in 2024) was taken per event, with the initial goal of processing, sorting and identifying all. Early in the labwork period, multiple replicates were therefore sorted as a part of the process of assessing available time for labwork, processing time, and sample variability within a event. Based on an investigation of sample variability within the first sampling event (see the script `6_1_sample_variability_check.R` ) and the available time and resources, only one sample per event was consistently processed for the remaining material.
+
+In script `2_7_data_tidy_and_merge.R` we therefore remove two additional replicates for the sampling event on the date 24.05.2023 from lake Stor-Drakstsjøen, which were processed prior to this decision, to ensure consistent sampling effort across all lakes in our analyses.
+
+```{r load-data}
+# 2_1
+source("2_1_data_occurrences.R")
+# 2_2
+source("2_2_data_trait_locomotion.R")
+# 2_3
+source("2_3_data_trait_armour.R")
+# 2_4
+source("2_4_data_temperature.R")
+# 2_5
+source("2_5_data_water_levels.R")
+# 2_6
+source("2_6_data_hydropower.R")
+# 2_7
+source("2_7_data_tidy_and_merge.R")
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+# 3. Analyses
+
+The scripts 3_1 to 3_7 contain the code necessary to run the analyses performed in the publication. Each script contains further details.
+
+```{r analyses}
+# 3_1
+source("3_1_species_abundance.R")
+# 3_2
+source("3_2_species_richness.R")
+# 3_3
+source("3_3_community_composition.R")
+# 3_4
+source("3_4_betadiversity_partitioning.R")
+# 3_5
+source("3_5_indicator_species.R")
+# 3_6
+source("3_6_trait_locomotion.R")
+# 3_7
+source("3_7_trait_armour.R")
+```
+
+# 4. Figures and tables
+
+The scripts 4_1 to 4_5 can be run to create the majority of figures and tables included in the publication. The naming of each script reflects the figure or table number in the publication.
+
+```{r figures-tables}
+# 4_1
+source("4_1_trait_armour.R")
+```
+
+# 5. Supplementary figures and tables
+
+The scripts 5_1 to 5_8 can be run to create the majority of figures and tables included in the Supplementary Information (SI) of the publication. The naming of each script reflects the figure or table number in the SI of the publication.
+
+```{r SI-figures-tables}
+
+```
+
+# 6. Additional analyses
+
+The scripts `6_1_sample_variability_check.R` and `6_2_spatial_distance_check.R` documents additional analyses done in parallel with the general analysis workflow.
+
+```{r additional-analyses}
+
+```
