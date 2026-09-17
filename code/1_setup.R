@@ -21,8 +21,10 @@ package_vec <- c(
   "here", # package for locating and storing files with relative paths
   "dplyr", # data manipulation
   "knitr", # for rmarkdown table visualisations
+  "forcats", # solving common problems with categorical variables
   "rgbif",
   "sf", # an alternative spatial object library
+  "geosphere", # compute spatial distances
   "mapview",
   "ggplot2", # for visualistion
   "ggpubr", # publication ready plots
