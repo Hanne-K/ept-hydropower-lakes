@@ -5,7 +5,7 @@
 ##############################################
 
 # Run first community composition script
-source("3_3_community_composition.R")
+# source("3_3_community_composition.R")
 
 # Prep for plotting ------------------------------------------------------------
 
