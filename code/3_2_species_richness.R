@@ -48,6 +48,26 @@ ggplot(data = event_sp_df, aes(N_species)) +
 
 dev.off()
 
+## 2.3 Species summary ---------------------------------------------------------
+
+# Unique species per order and locality
+table_unique_sp <- occurrences_df %>%
+  dplyr::filter(taxonRank == "SPECIES") %>%
+  dplyr::group_by(locality,order) %>%
+  dplyr::summarise(nr_species = length(unique(scientificName)))
+
+# Unique species overall
+unique_sp <- occurrences_df %>%
+  dplyr::filter(taxonRank == "SPECIES") %>%
+  dplyr::summarise(nr_species = length(unique(scientificName)),
+                   nr_individuals = sum(individualCount))
+
+unique_EPT <- occurrences_df %>%
+  dplyr::filter(taxonRank == "SPECIES") %>%
+  dplyr::group_by(order) %>%
+  dplyr::summarise(nr_species = length(unique(scientificName)))
+
+
 # 3. Find appropriate distribution and consider random effects ----------------- 
 
 ## 3.1 Check fit to different distributions ------------------------------------

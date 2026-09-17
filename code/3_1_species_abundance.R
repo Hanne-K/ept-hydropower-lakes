@@ -49,6 +49,17 @@ ggplot(data = event_ab_df, aes(sum_individualCount)) +
 
 dev.off()
 
+## 2.3 Species data vs. all data -----------------------------------------------
+
+# How much data do we lose when only looking at species-level data?
+taxalevel_df <- occurrences_df %>%
+  dplyr::group_by(taxonRank) %>%
+  summarise(n_obs = sum(individualCount))
+
+sum(taxalevel_df$n_obs) #  7838
+
+# How many percent of the data is used? (used = species level data)
+(2607/7838)*100 # 33
 
 # 3. Find appropriate distribution and consider random effects ----------------- 
 
