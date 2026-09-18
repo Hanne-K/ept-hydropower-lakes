@@ -48,7 +48,7 @@ armour_lake_df$locality <- factor(armour_lake_df$locality,
                                   levels = c("Barsetvatnet","Roksetvatnet","Kilvatnet",
                                              "Gjoljavatnet","Storvatnet","Stor-Drakstsjoen"))
 # Rename localities
-armour_lake_df <- armor_lake_df %>%
+armour_lake_df <- armour_lake_df %>%
   mutate(locality = dplyr::recode(locality,
                                   "Kilvatnet" = "Jonsvatnet",
                                   "Gjoljavatnet" = "Gjøljavatnet",

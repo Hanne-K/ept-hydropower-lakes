@@ -54,7 +54,7 @@ length(amp_4_6$amplitude)
 # 162 reservoirs with amplitude between 4-6 meters
 
 # Look at the lakes, they are spread throughout Norway
-mapview(amp_4_6)
+#mapview(amp_4_6)
 
 # How many percent is this of all hydropower reservoirs we have amplitude
 # data from?
@@ -66,7 +66,7 @@ amp_0_4 <- magasin_sf_P %>%
 
 (371/1114)*100 # 33.30341
 
-mapview(amp_0_4)
+#mapview(amp_0_4)
 
 # How many are above 6 meters?
 amp_6 <- magasin_sf_P %>%
@@ -74,13 +74,13 @@ amp_6 <- magasin_sf_P %>%
 
 (581/1114)*100 # 52.1544
 
-mapview(amp_6)
+#mapview(amp_6)
 
 # Between 4 and 8 meters?
 amp_4_8 <- magasin_sf_P %>%
   dplyr::filter(amplitude >= 4 & amplitude <=8)
 
-mapview(amp_4_8)
+#mapview(amp_4_8)
 
 # Figure -----------------------------------------------------------------------
 
