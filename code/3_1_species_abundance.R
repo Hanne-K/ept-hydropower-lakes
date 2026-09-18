@@ -256,35 +256,6 @@ emm_status <- emmeans::emmeans(Abundance_nb_3, ~ Status, type = "response")
 emm_status_df <- as.data.frame(emm_status)
 head(emm_status_df)
 
-# Customised effect plot
-jpeg(here::here("results","figures","fig_emmeans_ab_mod_3.jpg"), width = 10, height = 10, units="cm", res=300)
-
-fig_emmeans_ab_mod_3 <- ggplot(event_ab_df, aes(x = Status, y = sum_individualCount, color = Status))+
-  geom_jitter(width = 0.1, alpha = 0.7, size = 2)+
-  scale_color_manual(values = c("#E6E6E6","#7A7A7A"))+
-  theme_classic()+
-  theme(legend.position = "none")
-
-fig_emmeans_ab_mod_3 <- fig_emmeans_ab_mod_3 +
-  geom_point(data = emm_status_df,
-             aes(x = Status, y = response),
-             inherit.aes = FALSE,
-             size = 3, 
-             color = "black") +
-  geom_errorbar(data = emm_status_df,
-                aes(x = Status, ymin = asymp.LCL, ymax = asymp.UCL),
-                inherit.aes = FALSE,
-                width = 0.1) +
-  labs(y = "Predicted abundance (mean \u00B1 95% CI)",
-       x = "Regulation status")
-
-ggMarginal(fig_emmeans_ab_mod_3, 
-           groupColour = TRUE, 
-           groupFill = TRUE, 
-           margins = "y")
-
-dev.off()
-
 # Calculating percentage change in expected abundance
 ((2.69-4.04)/4.04)*100 # -33.41584
 round(((2.69-4.04)/4.04)*100, digits = 0)
