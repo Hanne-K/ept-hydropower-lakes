@@ -55,7 +55,7 @@ source("2_7_data_tidy_and_merge.R")
 
 The scripts 3_1 to 3_7 contain the code necessary to run the analyses performed in the publication. Each script contains further details.
 
-```{r analyses}
+```{r analyses, warning=FALSE}
 # 3_1
 source("3_1_species_abundance.R")
 # 3_2
@@ -74,11 +74,19 @@ source("3_7_trait_armour.R")
 
 # 4. Figures and tables
 
-The scripts 4_1 to 4_5 can be run to create the majority of figures and tables included in the publication. The naming of each script reflects the figure or table number in the publication.
+The scripts 4_1 to 4_5 can be run to create the majority of figures and tables included in the publication. The naming of each script reflects the figure or table number in the publication. Run scripts manually if figures are not saved properly.\
 
 ```{r figures-tables}
 # 4_1
-source("4_1_trait_armour.R")
+source("4_1_fig_2_rarefaction_curve.R")
+# 4_2
+source("4_2_fig_3_effectplots_ab_rich.R")
+# 4_3
+source("4_3_fig_4_NMDS.R")
+# 4_4
+source("4_4_fig_5_forestplot_traits.R")
+# 4_5
+source("4_5_table_2_summary_statistics.R")
 ```
 
 # 5. Supplementary figures and tables
@@ -86,6 +94,22 @@ source("4_1_trait_armour.R")
 The scripts 5_1 to 5_8 can be run to create the majority of figures and tables included in the Supplementary Information (SI) of the publication. The naming of each script reflects the figure or table number in the SI of the publication.
 
 ```{r SI-figures-tables}
+# 5_1
+source("5_1_fig_S1_hydropower_norway.R")
+# 5_2
+source("5_2_fig_S2_wlf_control_lakes.R")
+# 5_3
+source("5_3_fig_S3_wlf_regulated_lakes.R")
+# 5_4
+source("5_4_fig_S4_daily_avg_temp.R")
+# 5_5
+source("5_5_fig_S5_caterpillarplot_ab_rich.R")
+# 5_6
+source("5_6_fig_S6_barplot_traits_abundance.R")
+# 5_7
+source("5_7_fig_S7_barplot_traits_proportion.R")
+# 5_8
+source("5_8_table_S3_species_list.R")
 
 ```
 
@@ -94,5 +118,8 @@ The scripts 5_1 to 5_8 can be run to create the majority of figures and tables i
 The scripts `6_1_sample_variability_check.R` and `6_2_spatial_distance_check.R` documents additional analyses done in parallel with the general analysis workflow.
 
 ```{r additional-analyses}
-
+# 6_1
+source("6_1_sample_variability_check.R")
+# 6_2
+source("6_2_spatial_distance_check.R")
 ```
