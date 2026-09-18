@@ -18,11 +18,11 @@ load(file = here::here("data","source_data","waterlevels","GPS_waterlevels.rda")
 # Load raw data 
 # Data from the web portal Sildre, by The Norwegian Water and Energy Directorate
 # Downloaded 04.02.2025 from https://sildre.nve.no/
-gjolja_wl <- read.csv(file = here::here("data","source_data","waterlevels","waterlevels_Gjolja.csv"),
+gjolja_wl <- read.csv(file = here::here("data","source_data","waterlevels","Sildre_NVE","waterlevels_Gjolja.csv"),
                       sep = ";",
                       header = FALSE)
 
-stordr_wl <- read.csv(file = here::here("data","source_data","waterlevels","waterlevels_Stor_Drakst.csv"),
+stordr_wl <- read.csv(file = here::here("data","source_data","waterlevels","Sildre_NVE","waterlevels_Stor_Drakst.csv"),
                       sep = ";",
                       header = FALSE)
 
