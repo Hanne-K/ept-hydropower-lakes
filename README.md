@@ -21,6 +21,8 @@ The analysis was built using **R (version 4.2.2)**. The core analysis relies on 
 3. Open and run `notebooks/main.qmd` (or run scripts chronologically from the `R/` directory).
 
 ## Data Availability
+The data required to reproduce the analyses are available from Zenodo: 10.5281/zenodo.22829186. Download the data folder from Zenodo and place it in the root directory of this R project.
+
 * **`data/source_data/armour/InvertTraitsTable_v1.txt`**: Contains trait data sourced from the  U.S. Geological Survey Data Series 187.
 * **`data/source_data/hydropower_reservoirs_NVE`**: Contains data and metadata on Norwegian reservoirs, sourced from The Norwegian Water Resources and Energy Directorate (NVE).
 * **`data/source_data/locomotion/locomotion_EPT_freshwaterecologyinfo.csv`**: Contains trait data sourced from www.freshwaterecology.info .
