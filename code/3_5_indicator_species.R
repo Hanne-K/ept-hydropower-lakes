@@ -8,10 +8,11 @@
 
 # Create df with abundances per lake
 locality_ab_EPT <- occurrences_df %>%
-  filter(taxonRank == "SPECIES") %>%
-  group_by(locality,scientificName) %>%
-  summarise(individualCount_species = sum(individualCount),
-            Status = paste0(unique(Status), sep = ""))
+  dplyr::filter(taxonRank == "SPECIES") %>%
+  dplyr::group_by(locality,scientificName) %>%
+  dplyr::summarise(individualCount_species = sum(individualCount),
+            Status = paste0(unique(Status), sep = "")) %>%
+  dplyr::ungroup()
 
 # Create community matrix
 com_matrix <- locality_ab_EPT %>%

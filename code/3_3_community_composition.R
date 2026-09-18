@@ -10,15 +10,16 @@
 
 # Create df
 locality_ab_EPT <- occurrences_df %>%
-  filter(taxonRank == "SPECIES") %>%
-  group_by(locality,scientificName) %>%
-  summarise(individualCount_species = sum(individualCount),
-            Status = paste0(unique(Status), sep = ""))
+  dplyr::filter(taxonRank == "SPECIES") %>%
+  dplyr::group_by(locality,scientificName) %>%
+  dplyr::summarise(individualCount_species = sum(individualCount),
+            Status = paste0(unique(Status), sep = "")) %>%
+  dplyr::ungroup()
 
 # Create community matrix
 com_matrix <- locality_ab_EPT %>%
   dplyr::mutate(across(.cols = c(locality,Status,scientificName), .fns = as.factor)) %>%
-  pivot_wider(names_from = scientificName, # pivot wide
+  tidyr::pivot_wider(names_from = scientificName, # pivot wide
               values_from = individualCount_species,
               values_fill = 0) %>%
   tibble::column_to_rownames(var = "locality") # change our column "site" to our rownames
@@ -46,8 +47,8 @@ print(dist_matrix)
 
 # 2. PERMANOVA
 # Using adonis from vegan package
-permanova_result <- adonis2(dist_matrix ~ Status, data = status_type, permutations = 999)
-print(permanova_result)
+permanova_result <- adonis2(com_matrix[,2:46] ~ com_matrix$Status, permutations = 999)
+print(permanova_result2)
 
 # 3. PERMDISP
 # Testing homogeneity of group dispersions

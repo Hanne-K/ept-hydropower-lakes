@@ -110,8 +110,3 @@ contrast_armour_df <- as.data.frame(summary(contrast_results_armour, type = "res
 confint_armour_df <- as.data.frame(confint(contrast_results_armour, type = "response"))
 
 results_armour_df <- left_join(contrast_armour_df,confint_armour_df)
-
-# Additional checks
-# Does effect of regulation differ across traits at all?
-anova(fit_nb)
-car::Anova(fit_nb, type = 3) # type II/III tests

@@ -105,8 +105,3 @@ contrast_loc_df <- as.data.frame(summary(contrast_results_loc, type = "response"
 confint_loc_df <- as.data.frame(confint(contrast_results_loc, type = "response"))
 
 results_loc_df <- left_join(contrast_loc_df,confint_loc_df)
-
-# Additional checks
-# Does effect of regulation differ across traits at all?
-anova(fit_nb)
-car::Anova(fit_nb, type = 3) # type II/III tests

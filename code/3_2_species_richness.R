@@ -323,7 +323,9 @@ m0 <- lme4::glmer(formula = N_species ~ 1 + (1|locality),
 lme4::VarCorr(m0)
 
 m0_glm <- glm(N_species ~ 1, data = event_sp_df, family = poisson)
-AICc(m0, m0_glm)
+
+MuMIn::AICc(m0)
+MuMIn::AICc(m0_glm)
 # random effects matter
 
 # What about R2?
